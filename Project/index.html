@@ -7,6 +7,7 @@
 	<link rel="stylesheet" href="css/shift.css">
 	<link rel="stylesheet" href="css/bootstrap.css">
 	<link rel="stylesheet" href="style.css">
+	<script type = "text/javascript" src = "js/do_costdivide.js"></script>
 	<!--Sheets end here-->
 	</head>
 	
@@ -32,13 +33,13 @@
 	</div>
 	
 	<div class="neighborhood-guides">
-	<div class="container" style="padding-left: 15px">
+	<div class="container">
 	<div id="left" style="padding-left: 15px">
 	<legend class="step_headers"> Step 1</legend>
 	<p>Fill in this information so we can understand how you would like us to help us!</p>
 
 <!----- HERE IS THE FORM WE ARE USING TO DO THE ACTIONS OF OUR APP ------>
-<form name="costdivideform" method="submit" action="">
+<form name="costdivideform" onSubmit = "return do_costdivide()" method="submit" action="">
 <table width="550px">
    <fieldset>
     
