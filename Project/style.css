@@ -1,0 +1,66 @@
+.nav a {
+	color: #5a5a5a;
+	font-size: 11px;
+	font-weight: bold;
+	padding: 14px 10px;
+	text-transform: uppercase;
+}
+	
+.nav li {
+	display: inline;
+}
+	
+.jumbotron {
+	background-image: url("images/image1.jpg");
+	margin-left: auto;
+	margin-right: auto;
+	position: relative;
+	width: 1150px;
+	height: 400px;
+}
+	
+.jumbotron .container {
+	position: relative;
+	top:100px;
+}
+
+.jumbotron h1 {
+	color: #f8f8f8;
+	font-size: 48px;
+	font-family: 'Shift', sans-serif;
+	font-weight: bold;
+}
+
+.jumbotron p {
+	font-size: 20px;
+	color: #fff;
+}
+
+.neighborhood-guides {
+	border-bottom: 1px solid #dbdbdb;
+}
+
+.neighborhood-guides h2 {
+	color: #393c3d;
+	font-size: 24px;
+}
+
+.neighborhood-guides p {
+	font-size: 15px;
+	margin-bottom: 13px;
+}
+
+.learn-more {
+	background-color: #b2b2b2;
+	height: 155px;
+}
+
+.learn-more h3 {
+	font-family: 'Shift', sans-serif;
+	font-size: 18px;
+	font-weight: bold;
+}
+	
+.learn-more a {
+	color: #0066ff;
+}
