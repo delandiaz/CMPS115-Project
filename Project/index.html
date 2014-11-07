@@ -33,35 +33,57 @@
 	
 	<div class="neighborhood-guides">
 	<div class="container" style="padding-left: 15px">
-	<h2>Calculate!</h2>
-	<p>Let's do some magic and make your life easier for you. Just <br>
-         fill in the form below to get started! Don't worry, we don't <br>
-         save any information at the moment.</p>
+	<div id="left" style="padding-left: 15px">
+	<legend class="step_headers"> Step 1</legend>
+	<p>Fill in this information so we can understand how you would like us to help us!</p>
 
 <!----- HERE IS THE FORM WE ARE USING TO DO THE ACTIONS OF OUR APP ------>
-<form name="costdivideform" method="post" action="">
-<table width="388px">
-</tr>
+<form name="costdivideform" method="submit" action="">
+<table width="550px">
+   <fieldset>
+    
+      <legend id="step_2_title">
+        How Do You Want To Split This?
+      </legend>
+      
+      <div>
+      	<input id="radioDefault_5" name="Field5" type="hidden" value="">
+      	<div>
+      		<input id="Field5_0" name="Field5" type="radio" value="First Choice" tabindex="5" checked="checked">
+      		<label class="choice" for="Field5_0">Evenly</label>
+      	</div>
+        <div>
+        	<input id="Field5_1" name="Field5" type="radio" value="Second Choice" tabindex="6">
+        	<label class="choice" for="Field5_1">Custom</label>
+        </div>
+        <div>
+      </div>
+    </fieldset>
+  </div>
+      <legend id="step_2_title">
+        How Many People Will This Be Split Between and What is The Total Cost?
+      </legend>
 <tr>
  <td valign="top">
-  <label for="first_name">Number of People*</label>
- </td>
- <td valign="top">
+  <label for="first_name">Total People*</label>
+  </td>
+  <td valign="top">
   <input  type="text" name="num_people" maxlength="50" size="30">
- </td>
+</td>
 </tr>
- 
 <tr>
- <td valign="top"">
-  <label for="last_name">Total Cost*</label>
- </td>
+</tr>
+<tr>
+ <td valign="top">
+  <label for="last_name">Total Amount*</label>
+  </td>
  <td valign="top">
   <input  type="text" name="total_cost" maxlength="50" size="30">
- </td>
+</td>
 </tr>
-<tr>
+<!-- <tr>
  <td valign="top">
-  <label for="email">Email Address*</label>
+  <label for="email">Venmo Username*</label>
  </td>
  <td valign="top">
   <input  type="text" name="email" maxlength="80" size="30">
@@ -70,23 +92,43 @@
 </tr>
 <tr>
  <td valign="top">
-  <label for="comments">Comments*</label>
+  <label for="comments">Note*</label>
  </td>
  <td valign="top">
   <textarea  name="comments" maxlength="1000" cols="25" rows="6">
   </textarea>
  </td>
  
-</tr>
+</tr>-->
 <tr>
  <td colspan="2" style="text-align:center">
   <input type="submit" value="Submit">
  </td>
 </tr>
 </table>
+  <div>
 </form>
 <!--------------------- HERE IS WHERE THE FORM ENDS --------------------->
 	</div>
+	</div>
+<!----------  RIGHT COLUMN STARTS HERE  ---------->
+	<div id="right">
+		<legend class="step_headers"> Step 2</legend>
+		Here is the right column, lets see if this works as planned! I will keep
+		writing to test it's width and see whether it is in range or not.
+		Here is the right column, lets see if this works as planned! I will keep
+		writing to test it's width and see whether it is in range or not.
+		Here is the right column, lets see if this works as planned! I will keep
+		writing to test it's width and see whether it is in range or not.
+		Here is the right column, lets see if this works as planned! I will keep
+		writing to test it's width and see whether it is in range or not.
+		Here is the right column, lets see if this works as planned! I will keep
+		writing to test it's width and see whether it is in range or not.
+		Here is the right column, lets see if this works as planned! I will keep
+		writing to test it's width and see whether it is in range or not.
+	</div>
+<!----------  RIGHT COLUMN ENDS HERE  ---------->
+	<div class="clear"></div>
 	</div>
 	</div>
 	
