@@ -64,3 +64,33 @@
 .learn-more a {
 	color: #0066ff;
 }
+
+fieldset {
+	border: 0;
+	padding: 0;
+}
+.step_headers {
+	font-family: 'Shift', sans-serif;
+	font-size: 35px;
+	font-weight: bold;
+	color: #001111;
+}
+
+#step_2_title{
+	font-family: 'Shift', sans-serif;
+	font-size: 15px;
+	font-weight: bold;
+}
+#left{
+        width: 575px;
+        float: left;
+}
+    
+#right{
+	position: relative;
+        margin-left: 575px; /* Change this to whatever the width of your left column is*/
+}
+    
+.clear{
+        clear: both;
+}
