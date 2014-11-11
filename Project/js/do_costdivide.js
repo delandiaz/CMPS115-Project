@@ -1,6 +1,9 @@
+var result;
+
 
 function do_costdivide() 
 {
+	//var len = document.costdivideform.
 	var num_people = parseInt(document.costdivideform.num_people.value);
 	if(isNaN(num_people) || num_people <= 0){
 		alert("Please enter a valid amount of people");
@@ -11,12 +14,10 @@ function do_costdivide()
 		alert("Please enter a valid total cost");
 		return false;
 	}
-	var result = (total_cost/num_people).toFixed(2);
-	
+	result = (total_cost/num_people).toFixed(2);
 	alert("The cost per person is $" + result);
 	return false;
 }
-
 
 
 function do_test()
