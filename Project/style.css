@@ -1,5 +1,5 @@
 .nav a {
-	color: #5a5a5a;
+	color: white;
 	font-size: 11px;
 	font-weight: bold;
 	padding: 14px 10px;
@@ -8,6 +8,13 @@
 	
 .nav li {
 	display: inline;
+}
+
+#nav_extra{
+	border-bottom: 2px solid;
+	border-radius: 10px; 
+	border-color: #DC3522;
+	background-color: #374140;
 }
 	
 .jumbotron {
@@ -25,7 +32,7 @@
 }
 
 .jumbotron h1 {
-	color: #f8f8f8;
+	color: #DC3522;
 	font-size: 48px;
 	font-family: 'Shift', sans-serif;
 	font-weight: bold;
@@ -33,7 +40,7 @@
 
 .jumbotron p {
 	font-size: 20px;
-	color: #fff;
+	color: #DC3522;
 }
 
 .neighborhood-guides {
@@ -51,46 +58,77 @@
 }
 
 .learn-more {
-	background-color: #b2b2b2;
+	background-color: #2A2C2B;
 	height: 155px;
+	color: white;
 }
 
 .learn-more h3 {
 	font-family: 'Shift', sans-serif;
 	font-size: 18px;
 	font-weight: bold;
+	color: #DC3522;
 }
 	
 .learn-more a {
-	color: #0066ff;
+	color: #DC3522;
 }
-
 fieldset {
 	border: 0;
 	padding: 0;
 }
+
+#main_extra{
+	margin-top: 5px;
+	border: 2px solid;
+	border-radius: 15px;
+	border-color: #DC3522;
+	margin-bottom: 5px;
+	background-color: #374140;
+}
+
 .step_headers {
 	font-family: 'Shift', sans-serif;
 	font-size: 35px;
 	font-weight: bold;
-	color: #001111;
+	color: #DC3522;
 }
 
-#step_2_title{
+#step_2_title {
 	font-family: 'Shift', sans-serif;
 	font-size: 15px;
 	font-weight: bold;
+	color: #DC3522;
+	text-decoration: none;
 }
-#left{
-        width: 575px;
+#left {
+	margin-bottom: 10px;
+	margin-top: 5px;
+        width: 570px;
         float: left;
+	color: white;
+}
+#left-border {/*
+	padding: 7px;
+	border: 2px solid;
+	border-radius: 20px;*/
 }
     
-#right{
+#right {
+	margin-bottom: 10px;
+	margin-top: 5px;
+	margin-left: 2.5px;
+	margin-right: 5px;
 	position: relative;
-        margin-left: 575px; /* Change this to whatever the width of your left column is*/
+        margin-left: 575px;
+	color: white;
 }
-    
+#right-border{/*
+	padding: 7px;
+	border: 2px solid;
+	border-radius: 20px;*/
+}
+
 .clear{
         clear: both;
 }
