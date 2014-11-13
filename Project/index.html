@@ -7,12 +7,15 @@
 	<link rel="stylesheet" href="css/shift.css">
 	<link rel="stylesheet" href="css/bootstrap.css">
 	<link rel="stylesheet" href="style.css">
-
+	<script type = "text/javascript" src = "js/slider_functionality.js"></script>
 	<script type = "text/javascript" src = "js/do_costdivide.js"></script>
 	<!--Sheets end here-->
 	</head>
 	
 	<body style="background-color: #1E1E20;">
+	<div id="loading">	
+	<img src="images/blue_edit"/> 
+	</div> 
 	<div class="nav">
 	<div class="container" id="nav_extra">
 	<ul class="pull-left">
@@ -25,19 +28,34 @@
 	</ul>
 	</div>
 	</div>
-	
-	<div class="jumbotron">
+	<!-- SLIDER FUNCTION HERE  -->
 	<div class="container">
-	<h1>Cost-Divider</h1>
-	<p>Split the bill like a Boss!!</p>
+    <div class="slider" style="float: left; position: relative;">
+    <img src="blue_edit.jpg" height="400" width="1140px" id="image">
+    <script type="text/javascript">
+    var myImage=document.getElementById("image");
+	//image files stored in an array. must contain full path
+    var array = ["images/blue_edit.jpg","images/code.jpg","images/infotech.jpg"];
+    var i=0;
+    function slideshow(){
+    myImage.setAttribute("src",array[i]);
+    i++;
+    if(i>=array.length){
+    i=0;
+    }
+    }
+    setInterval(slideshow,4000);
+    </script>
+    <!--</div>-->
+    </div>
 	</div>
-	</div>
+	<!-- SLIDER FUNCTION ENDS HERE -->
 	
 	<div class="neighborhood-guides">
 	<div class="container" id="main_extra">
 	<!--    LEFT COLUMN BEGINS HERE  -->
 	<div id="left" style="padding-left: 10px">
-	<legend class="step_headers"> Step 1</legend>
+	<legend class="step_headers"> First Step</legend>
 	<div id="left-border">
 	<p>Fill in this information so we can understand how you would like us to help us!</p>
 
@@ -46,9 +64,9 @@
 <table width="550px">
    <fieldset>
     
-      <legend id="step_2_title">
+      <div class = "inner_large">
         How Do You Want To Split This?
-      </legend>
+      </div>
       
       <div>
       	<input id="radioDefault_5" name="Field5" type="hidden" value="">
@@ -64,9 +82,9 @@
       </div>
     </fieldset>
   </div>
-      <legend id="step_2_title">
-        How Many People Will This Be Split Between and What is The Total Cost?
-      </legend>
+      <div class="inner_large">
+       Please Enter the Information Needed to Split
+      </div>
 <!-- TOTAL PEOPLE SECTION  -->
 <tr>
  <td valign="top">
@@ -98,7 +116,7 @@
 <!-- UPLOAD IMAGE SECTION  -->
 <tr>
 <td valign="top">
-<label for="image">Upload Receipt Image*</label>
+<label for="image">Upload Receipt Image</label>
 </td>
 <td valign="top">
 <div id="fileInput">
@@ -110,7 +128,7 @@
 </tr>
 <tr>
  <td valign="top">
-  <label for="comments">Note*</label>
+  <label for="comments">Note</label>
  </td>
  <td valign="top">
   <textarea  name="comments" maxlength="1000" cols="25" rows="6" style="color:#2A2C2B;">
@@ -133,20 +151,9 @@
 	</div>
 <!----------  RIGHT COLUMN STARTS HERE  ---------->
 	<div id="right">
-		<legend class="step_headers"> Step 2</legend>
+		<legend class="step_headers"> Final Step</legend>
 	<div id="right-border">
-		Here is the right column, lets see if this works as planned! I will keep
-		writing to test it's width and see whether it is in range or not.
-		Here is the right column, lets see if this works as planned! I will keep
-		writing to test it's width and see whether it is in range or not.
-		Here is the right column, lets see if this works as planned! I will keep
-		writing to test it's width and see whether it is in range or not.
-		Here is the right column, lets see if this works as planned! I will keep
-		writing to test it's width and see whether it is in range or not.
-		Here is the right column, lets see if this works as planned! I will keep
-		writing to test it's width and see whether it is in range or not.
-		Here is the right column, lets see if this works as planned! I will keep
-		writing to test it's width and see whether it is in range or not.
+		Make sure you're done on the left side before coming over here!
 	</div>
 	</div>
 <!----------  RIGHT COLUMN ENDS HERE  ---------->
