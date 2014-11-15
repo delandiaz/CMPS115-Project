@@ -141,3 +141,8 @@ fieldset {
         clear: both;
 }
 
+#singular{
+	display: none;
+}
+
+
