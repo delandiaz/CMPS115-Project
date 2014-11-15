@@ -1,11 +1,10 @@
 var result;
-
+var num_people;
 
 function do_costdivide() 
 {
-	var len = document.costdivideform.Field5.length;
 	
-	var num_people = parseInt(document.costdivideform.num_people.value);
+	num_people = parseInt(document.costdivideform.num_people.value);
 	if(isNaN(num_people) || num_people <= 0){
 		alert("Please enter a valid amount of people");
 		return false;
@@ -16,6 +15,7 @@ function do_costdivide()
 		return false;
 	}
 	result = (total_cost/num_people).toFixed(2);
+	create_form();
 	url();
 	alert("The cost per person is $" + result);
 	return false;
@@ -45,10 +45,32 @@ function url(){
     
 }
 
+function create_form(){
+	var table = document.getElementById("CustomTable");
+	var i = 0;
+	for(var i=0; i<num_people; i++){
+		var row = table.insertRow(0);
+		var cell1 = row.insertCell(0);
+		var i_itor = i+1;
+		var cell2 = row.insertCell(1);
+		cell1.innerHTML = "Person " + i_itor;
+		cell2.innerHTML = result;
+	}
+	var row = table.insertRow(num_people);
+	row.style = "text-align: center;"
+	row.innerHTML = "Does this look correct to you?";
+	var row = table.insertRow(num_people+1);
+	var btn = document.createElement("BUTTON");
+	btn.setAttribute('style', 'color: black;');
+	btn.setAttribute('type','button');
+	row.setAttribute('align', 'center');
+	btn.setAttribute('onClick','hooray()');
+	btn.innerHTML = "Yes";
+	row.appendChild(btn);
+}
 
-
-function do_test()
+function hooray()
 {
-	alert("This is a test");
+	alert("Yay!! It was a success!!!!");
 	return false;
 }
