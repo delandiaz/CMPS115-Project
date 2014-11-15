@@ -7,9 +7,20 @@
 	<link rel="stylesheet" href="css/shift.css">
 	<link rel="stylesheet" href="css/bootstrap.css">
 	<link rel="stylesheet" href="style.css">
-	<script type = "text/javascript" src = "js/slider_functionality.js"></script>
 	<script type = "text/javascript" src = "js/do_costdivide.js"></script>
-	<!--Sheets end here-->
+	<script type = "text/javascript">
+	function check_type(){
+		if(document.cd_typeform.evenly.checked) {
+		document.getElementById("singular").style.display = 'none';
+	 	 return false;
+		}
+		else if(document.cd_typeform.custom.checked) {
+		document.getElementById("singular").style.display = 'table-row';
+		  return false;
+		}
+		  return false;
+	}
+	</script>
 	</head>
 	
 	<body style="background-color: #1E1E20;">
@@ -59,8 +70,8 @@
 	<div id="left-border">
 	<p>Fill in this information so we can understand how you would like us to help us!</p>
 
-<!----- HERE IS THE FORM WE ARE USING TO DO THE ACTIONS OF OUR APP ------>
-<form name="costdivideform" onSubmit = "return do_costdivide()" method="submit" action="">
+<!----- THIS IS THE FORM TO TEST FOR EVEN OR CUSTOM SPLITTING ------>
+<form name="cd_typeform" action="" target="hidden-form">
 <table width="550px">
    <fieldset>
     
@@ -69,22 +80,41 @@
       </div>
       
       <div>
-      	<input id="radioDefault_5" name="Field5" type="hidden" value="">
       	<div>
-      		<input id="Field5_0" name="Field5" type="radio" value="First Choice" tabindex="5" checked="checked">
-      		<label class="choice" for="Field5_0">Evenly</label>
+      		<input id="evenly" name="Field5" type="radio" value="evenly" tabindex="5">
+      		<label class="choice" for="evenly">Evenly</label>
       	</div>
         <div>
-        	<input id="Field5_1" name="Field5" type="radio" value="Second Choice" tabindex="6">
-        	<label class="choice" for="Field5_1">Custom</label>
+        	<input id="custom" name="Field5" type="radio" value="custom" tabindex="6">
+        	<label class="choice" for="custom">Custom</label>
         </div>
-        <div>
-      </div>
     </fieldset>
   </div>
+<tr>
+ <td colspan="2" style="text-align:center">
+  <input id="first_button" type="button" onClick = "return check_type()" value="Split!" style="color:#2A2C2B;">
+ </td>
+</tr>
+</table>
+</form>
+<!----- SPLIT CHECKING FORM ENDS HERE ------>
+
+<!----- HERE IS THE FORM WE ARE USING TO DO THE ACTIONS OF OUR APP ------>
+<form name="costdivideform" action="" target="hidden-form">
+<table width="550px">
       <div class="inner_large">
        Please Enter the Information Needed to Split
       </div>
+<!-- TOTAL AMOUNT SECTION  -->
+<tr id="singular">
+<div>
+ <td valign="top">
+  <label for="percent_split">Percentage Split*</label>
+  </td>
+ <td valign="top">
+  <input  type="text" name="percent_split" maxlength="50" size="30" style="color:#2A2C2B;">
+</td>
+</tr>
 <!-- TOTAL PEOPLE SECTION  -->
 <tr>
  <td valign="top">
@@ -99,7 +129,7 @@
 <!-- TOTAL AMOUNT SECTION  -->
 <tr>
  <td valign="top">
-  <label for="last_name">Total Amount*</label>
+  <label for="total_cost">Total Amount*</label>
   </td>
  <td valign="top">
   <input  type="text" name="total_cost" maxlength="50" size="30" style="color:#2A2C2B;">
@@ -111,7 +141,7 @@
   <label for="email">Venmo Username*</label>
  </td>
  <td valign="top">
-  <input  type="text" name="venmo_user" maxlength="80" size="30" style="color:#2A2C2B;">
+  <input id="venmo_id" type="text" name="venmo_user" maxlength="80" size="30" style="color:#2A2C2B;">
  </td>
 <!-- UPLOAD IMAGE SECTION  -->
 <tr>
@@ -131,14 +161,14 @@
   <label for="comments">Note</label>
  </td>
  <td valign="top">
-  <textarea  name="comments" maxlength="1000" cols="25" rows="6" style="color:#2A2C2B;">
+  <textarea id="comment_id"  name="comments" maxlength="1000" cols="25" rows="6" style="color:#2A2C2B;">
   </textarea>
  </td>
  
 </tr>
 <tr>
  <td colspan="2" style="text-align:center">
-  <input type="submit" value="Submit" style="color:#2A2C2B;">
+  <input id="second_button" type="button"  onClick = "return do_costdivide()" value="Submit" style="color:#2A2C2B;">
  </td>
 </tr>
 </table>
@@ -153,11 +183,22 @@
 	<div id="right">
 		<legend class="step_headers"> Final Step</legend>
 	<div id="right-border">
-		Make sure you're done on the left side before coming over here!
+		Make sure you're done on the left side before coming over here! <br>
+
+<!--------------- CUSTOM FORM IS HERE, ALL INSIDE ELEMENTS CREATED IN JAVASCRIPT ------------->
+<form name="CustomForm" action="" target="hidden-form">
+<table width="550px" id="CustomTable">
+      
+</table>
+</form>
+<!--    END OF CUSTOM FORM  -->
+
 	</div>
 	</div>
 <!----------  RIGHT COLUMN ENDS HERE  ---------->
 	<div class="clear"></div>
+<!----------  IFRAME TO KEEP PAGE FROM REFRESHING  -------->
+	<IFRAME style="display:none" name="hidden-form"></IFRAME>
 	</div>
 	</div>
 	<!-- FOOTER HERE -->
