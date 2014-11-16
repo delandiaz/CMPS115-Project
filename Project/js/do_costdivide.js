@@ -47,6 +47,11 @@ function url(){
 
 function create_form(){
 	var table = document.getElementById("CustomTable");
+	var rowCount = CustomTable.rows.length;
+	//Makes sure the table is empty
+	for (var x=rowCount-1; x>=0; x--) {
+	   table.deleteRow(x);
+	}
 	var i = 0;
 	for(var i=0; i<num_people; i++){
 		var row = table.insertRow(0);
