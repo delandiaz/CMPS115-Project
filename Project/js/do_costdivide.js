@@ -1,5 +1,6 @@
 var result;
 var num_people;
+var ven_names;
 
 function do_costdivide() 
 {
@@ -16,13 +17,13 @@ function do_costdivide()
 	}
 	result = (total_cost/num_people).toFixed(2);
 	create_form();
-	url();
+	custom_url();
 	alert("The cost per person is $" + result);
 	return false;
 }
 
 
-function url(){
+function custom_url(){
   var url = "https://venmo.com/";
   var helper = "?txn=pay&amount=";
   var helper2 = "&note=";
@@ -45,7 +46,9 @@ function url(){
     
 }
 
+
 function create_form(){
+	// Find a <table> element with id="myTable":
 	var table = document.getElementById("CustomTable");
 	var rowCount = CustomTable.rows.length;
 	//Makes sure the table is empty
@@ -53,14 +56,21 @@ function create_form(){
 	   table.deleteRow(x);
 	}
 	var i = 0;
+	//Creates each row for form
 	for(var i=0; i<num_people; i++){
 		var row = table.insertRow(0);
 		var cell1 = row.insertCell(0);
 		var i_itor = i+1;
 		var cell2 = row.insertCell(1);
-		cell1.innerHTML = "Person " + i_itor;
+		ven_names = document.createElement("input");
+		ven_names.setAttribute('type',"text");
+		ven_names.setAttribute('id',"ven_user" + i_itor);
+		ven_names.setAttribute('value',"");
+		ven_names.setAttribute('style', 'color: black;');
+		cell1.appendChild(ven_names);
 		cell2.innerHTML = result;
 	}
+	//Creates confirmation area for end of form
 	var row = table.insertRow(num_people);
 	row.style = "text-align: center;"
 	row.innerHTML = "Does this look correct to you?";
@@ -74,8 +84,36 @@ function create_form(){
 	row.appendChild(btn);
 }
 
+function even_url(){
+  var url = "https://venmo.com/";
+  var helper = "?txn=pay&amount=";
+  var helper2 = "&note=";
+  var user_name = document.getElementById("venmo_id").value;
+  var comments = document.getElementById("comment_id").value;
+  comments = comments.trim();
+  if(comments == null || comments == "")
+  {
+	url += user_name + helper + result;
+  }
+  else
+  {
+	var comments2 = comments.split(' ').join('+');
+  //alert(user_name);
+  //url += user_name + helper + result;
+	url += user_name + helper + result + helper2 + comments2;
+   }
+  alert(url);
+  //return false;
+    
+}
+
 function hooray()
 {
-	alert("Yay!! It was a success!!!!");
+	var itor = num_people;
+	while(itor > 0){
+		var grab_names = document.getElementById("ven_user" + itor).value;
+		alert(grab_names);
+		itor = itor -1;
+	}
 	return false;
 }
