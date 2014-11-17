@@ -17,7 +17,7 @@ function do_costdivide()
 	}
 	result = (total_cost/num_people).toFixed(2);
 	create_form();
-	custom_url();
+	//even_url();
 	alert("The cost per person is $" + result);
 	return false;
 }
@@ -46,6 +46,53 @@ function custom_url(){
     
 }
 
+function even_url(){
+  var itor = num_people;
+  
+  var url = "https://venmo.com/";
+  var helper = "?txn=charge&recipients=";
+  var helper2 = "&amount=";
+  var helper3 = "&note=";
+  //var user_name = document.getElementById("venmo_id").value;
+  var comments = document.getElementById("comment_id").value;
+  comments = comments.trim();
+  url += helper;
+  while(itor > 0){
+	var grabbed_name = document.getElementById("ven_user" + itor).value;
+	if(itor != 1){
+		url += grabbed_name + "%2C";
+	}else{
+		url += grabbed_name;
+	}
+	itor--;
+  }
+  url += helper2 + result;
+  if(comments == null || comments == "")
+  {
+	//url += user_name + helper + result;
+  }
+  else
+  {
+	var comments2 = comments.split(' ').join('+');
+  //alert(user_name);
+  //url += user_name + helper + result;
+	url += helper3 + comments2;
+   }
+  alert(url);
+  //return false;
+    
+}
+
+function hooray()
+{
+	var itor = num_people;
+	while(itor > 0){
+		var grab_names = document.getElementById("ven_user" + itor).value;
+		alert(grab_names);
+		itor = itor -1;
+	}
+	return false;
+}
 
 function create_form(){
 	// Find a <table> element with id="myTable":
@@ -79,41 +126,9 @@ function create_form(){
 	btn.setAttribute('style', 'color: black;');
 	btn.setAttribute('type','button');
 	row.setAttribute('align', 'center');
-	btn.setAttribute('onClick','hooray()');
+	btn.setAttribute('onClick','even_url()');
 	btn.innerHTML = "Yes";
 	row.appendChild(btn);
 }
 
-function even_url(){
-  var url = "https://venmo.com/";
-  var helper = "?txn=pay&amount=";
-  var helper2 = "&note=";
-  var user_name = document.getElementById("venmo_id").value;
-  var comments = document.getElementById("comment_id").value;
-  comments = comments.trim();
-  if(comments == null || comments == "")
-  {
-	url += user_name + helper + result;
-  }
-  else
-  {
-	var comments2 = comments.split(' ').join('+');
-  //alert(user_name);
-  //url += user_name + helper + result;
-	url += user_name + helper + result + helper2 + comments2;
-   }
-  alert(url);
-  //return false;
-    
-}
 
-function hooray()
-{
-	var itor = num_people;
-	while(itor > 0){
-		var grab_names = document.getElementById("ven_user" + itor).value;
-		alert(grab_names);
-		itor = itor -1;
-	}
-	return false;
-}
