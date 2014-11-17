@@ -1,6 +1,7 @@
 var result;
 var num_people;
 var ven_names;
+var url;
 
 function do_costdivide() 
 {
@@ -24,7 +25,7 @@ function do_costdivide()
 
 
 function custom_url(){
-  var url = "https://venmo.com/";
+  url = "https://venmo.com/";
   var helper = "?txn=pay&amount=";
   var helper2 = "&note=";
   var user_name = document.getElementById("venmo_id").value;
@@ -49,7 +50,7 @@ function custom_url(){
 function even_url(){
   var itor = num_people;
   
-  var url = "https://venmo.com/";
+  url = "https://venmo.com/";
   var helper = "?txn=charge&recipients=";
   var helper2 = "&amount=";
   var helper3 = "&note=";
@@ -78,7 +79,7 @@ function even_url(){
   //url += user_name + helper + result;
 	url += helper3 + comments2;
    }
-  alert(url);
+  return url;
   //return false;
     
 }
@@ -126,7 +127,7 @@ function create_form(){
 	btn.setAttribute('style', 'color: black;');
 	btn.setAttribute('type','button');
 	row.setAttribute('align', 'center');
-	btn.setAttribute('onClick','even_url()');
+	btn.setAttribute('onClick',"window.open(even_url(), 'new_window')");
 	btn.innerHTML = "Yes";
 	row.appendChild(btn);
 }
