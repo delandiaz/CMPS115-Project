@@ -19,7 +19,7 @@ function do_costdivide()
 	result = (total_cost/num_people).toFixed(2);
 	create_form();
 	//even_url();
-	alert("The cost per person is $" + result);
+	//alert("The cost per person is $" + result);
 	return false;
 }
 
@@ -97,10 +97,9 @@ function hooray()
 
 function create_form(){
 	if(num_people > 25){
-		alert("The max number of people is 25!");
+		alert("The maximum amount of people allowed is 25!");
 		return;
 	}
-	// Find a <table> element with id="myTable":
 	var table = document.getElementById("CustomTable");
 	var rowCount = CustomTable.rows.length;
 	//Makes sure the table is empty
@@ -108,6 +107,7 @@ function create_form(){
 	   table.deleteRow(x);
 	}
 	var i = 0;
+	
 	//Creates each row for form
 	for(var i=0; i<num_people; i++){
 		var row = table.insertRow(0);
@@ -120,20 +120,44 @@ function create_form(){
 		ven_names.setAttribute('value',"");
 		ven_names.setAttribute('style', 'color: black;');
 		cell1.appendChild(ven_names);
-		cell2.innerHTML = result;
+	//Conditions determines whether to print evenly or custom cells
+		if(document.cd_typeform.evenly.checked){
+			cell2.innerHTML = result;
+		}
+		else if(document.cd_typeform.custom.checked) {
+		    var custom_inputs = document.createElement("input");
+		    custom_inputs.setAttribute('type',"text");
+		    custom_inputs.setAttribute('id',"cust_inputs" + i_itor);
+		    custom_inputs.setAttribute('value',"");
+		    custom_inputs.setAttribute('style', 'color: black; width: 30px;');
+		    cell2.appendChild(custom_inputs);
+		}
+	//Inserts Headers/Titles for each column in custom form
+		if(i == num_people - 1){
+			var row_header = table.insertRow(0);
+			var cell_header1 = row_header.insertCell(0);
+			cell_header1.innerHTML = "Venmo Username";
+			var cell_header2 = row_header.insertCell(1);
+			if(document.cd_typeform.custom.checked){
+				cell_header2.innerHTML = "&nbsp;&nbsp;%";
+			}else if(document.cd_typeform.evenly.checked){
+				cell_header2.innerHTML = "Amount";
+			}
+		}
 	}
 	//Creates confirmation area for end of form
-	var row = table.insertRow(num_people);
-	row.style = "text-align: center;"
-	row.innerHTML = "Does this look correct to you?";
 	var row = table.insertRow(num_people+1);
+	row.style = "vertical-align:bottom;text-align:center"
+	row.innerHTML = "Verify the above information";
+	var row_end = table.insertRow(num_people+2);
 	var btn = document.createElement("BUTTON");
 	btn.setAttribute('style', 'color: black;');
 	btn.setAttribute('type','button');
 	row.setAttribute('align', 'center');
 	btn.setAttribute('onClick',"window.open(even_url(), 'new_window')");
-	btn.innerHTML = "Yes";
-	row.appendChild(btn);
+	btn.innerHTML = "Confirm";
+	row_end.style = "vertical-align:bottom;text-align:center;"
+	row_end.appendChild(btn);
 }
 
 
