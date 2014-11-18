@@ -96,6 +96,10 @@ function hooray()
 }
 
 function create_form(){
+	if(num_people > 25){
+		alert("The max number of people is 25!");
+		return;
+	}
 	// Find a <table> element with id="myTable":
 	var table = document.getElementById("CustomTable");
 	var rowCount = CustomTable.rows.length;
