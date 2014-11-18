@@ -62,7 +62,7 @@
 	</div>
 	<!-- SLIDER FUNCTION ENDS HERE -->
 	
-	<div class="neighborhood-guides">
+	<div class="cost-divider-form">
 	<div class="container" id="main_extra">
 	<!--    LEFT COLUMN BEGINS HERE  -->
 	<div id="left" style="padding-left: 10px">
@@ -83,10 +83,16 @@
       	<div>
       		<input id="evenly" name="Field5" type="radio" value="evenly" tabindex="5">
       		<label class="choice" for="evenly">Evenly</label>
+		<label class="choice" for="evenly" title='division of total amount is spread evenly among total 
+		number of people.'><img src="images/blue-qmark.png" height="25" width="25" 
+		id="image"></label>
       	</div>
         <div>
         	<input id="custom" name="Field5" type="radio" value="custom" tabindex="6">
         	<label class="choice" for="custom">Custom</label>
+		<label class="choice" for="evenly" title='division of total amount is unique per person.'><img 
+		src="images/blue-qmark.png" height="25" width="25" 
+		id="image"></label>
         </div>
     </fieldset>
   </div>
@@ -109,7 +115,8 @@
 <tr id="singular">
 <div>
  <td valign="top">
-  <label for="percent_split">Percentage Split*</label>
+  <label for="percent_split" title='% of total amount removed from total before dividing out to others.'>
+  Percentage Split*</label>
   </td>
  <td valign="top">
   <input  type="text" name="percent_split" maxlength="50" size="30" style="color:#2A2C2B;">
@@ -183,7 +190,7 @@
 	<div id="right">
 		<legend class="step_headers"> Final Step</legend>
 	<div id="right-border">
-		Make sure you're done on the left side before coming over here! <br>
+		Make sure you're done on the left side before coming over here! <br></br>
 
 <!--------------- CUSTOM FORM IS HERE, ALL INSIDE ELEMENTS CREATED IN JAVASCRIPT ------------->
 <form name="CustomForm" action="" target="hidden-form">
@@ -200,12 +207,11 @@
 <!----------  LOWER CONTENT BEGINS HERE  ---------->
 	<div id="cont_lower" class="container">
 	<legend class="inner_large"> Legend</legend>
-	<div id="small_text"><b>Evenly</b> = division of total amount is spread evenly among total number of people.
-	<b>Custom</b> = division of total amount is unique per person. <b>Percentage Split</b> = % of total amount r
-	emoved from total before dividing out to others. <b>Total People</b> = Total # of people the total 
-	amount is being split between. <b>Total Amount</b> = Total money/cost being split between group. <b>Venm
-	o username</b> = Venmo username of individual charging others. <b>Upload Receipt Image</b> = Sending others 
-	a copy of the receipt. <b>Note</b> = Comment/note added to charge on Venmo.</div>
+	<div id="small_text"><b>Total People</b> = Total # of people the total amount is being
+	split between. <b>Total Amount</b> = Total money/cost being split between group. <b>
+	Venmo username</b> = Venmo username of individual charging others. <b>Upload Receipt Image
+	</b> = Sending others a copy of the receipt. <b>Note</b> = Comment/note added to charge on 
+	Venmo.</div>
 	</div>
 <!----------  LOWER CONTENT ENDS HERE  ---------->
 
