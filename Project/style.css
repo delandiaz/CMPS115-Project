@@ -35,6 +35,7 @@
 .jumbotron .container {
 	position: relative;
 	top:100px;
+
 }
 
 .jumbotron h1 {
@@ -49,16 +50,16 @@
 	color: #26ADE4;
 }
 
-.neighborhood-guides {
+.cost-divider-form {
 	border-bottom: 1px solid #dbdbdb;
 }
 
-.neighborhood-guides h2 {
+.cost-divider-form h2 {
 	color: #393c3d;
 	font-size: 24px;
 }
 
-.neighborhood-guides p {
+.cost-divider-form p {
 	font-size: 15px;
 	margin-bottom: 13px;
 }
@@ -127,6 +128,8 @@ fieldset {
 	margin-top: 5px;
 	margin-left: 2.5px;
 	margin-right: 5px;
+	margin-left: auto;
+	margin-right: auto;
 	position: relative;
         margin-left: 575px;
 	color: white;
