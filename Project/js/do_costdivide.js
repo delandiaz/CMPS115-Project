@@ -1,21 +1,26 @@
 var result;
 var num_people;
+var total_cost;
 var ven_names;
 var url;
 
 function do_costdivide() 
 {
-	
 	num_people = parseInt(document.costdivideform.num_people.value);
+	total_cost = parseInt(document.costdivideform.total_cost.value);
 	if(isNaN(num_people) || num_people <= 0){
 		alert("Please enter a valid amount of people");
 		return false;
 	}
-	var total_cost = parseInt(document.costdivideform.total_cost.value);
+	
 	if(isNaN(total_cost) || total_cost <= 0){
 		alert("Please enter a valid total cost");
 		return false;
-	}
+	}	
+	if(document.cd_typeform.custom.checked) {
+		create_form();
+		return false;
+	}		
 	result = (total_cost/num_people).toFixed(2);
 	create_form();
 	//even_url();
@@ -25,26 +30,43 @@ function do_costdivide()
 
 
 function custom_url(){
-  url = "https://venmo.com/";
-  var helper = "?txn=pay&amount=";
-  var helper2 = "&note=";
-  var user_name = document.getElementById("venmo_id").value;
+  //var test = document.getElementById("cust_inputs1").value;
+  //alert(test);
+  
   var comments = document.getElementById("comment_id").value;
   comments = comments.trim();
-  if(comments == null || comments == "")
-  {
-	url += user_name + helper + result;
+  
+  var total_split = 0;
+  var personal_split;
+  var table = document.getElementById("CustomTable");
+  var helper = "?txn=charge&amount=";
+  var helper2 = "&note=";
+  
+  for(var i = 1; i < num_people + 1; i++){
+	//total_split += document.getElementById("cust_inputs" + i).value;
+	url = "https://venmo.com/";
+	
+	
+	//personal_split = ((document.getElementById("cust_inputs" +i).value)/100) * total_cost;
+	var string = "cust_inputs" + i.toString();
+	personal_split = ((document.getElementById(string.toString()).value) / 100) * total_cost;
+	var user_name = document.getElementById("ven_user" + i).value;
+	url += user_name + helper + personal_split;
+	//alert(personal_split);
+	
+	if(comments == null || comments == ""){
+	
+	}else{
+	   url += helper2 + comments;
+	}
+	//window.open(url, 'new_window')
+	alert(url);
+	
   }
-  else
-  {
-	var comments2 = comments.split(' ').join('+');
-  //alert(user_name);
-  //url += user_name + helper + result;
-	url += user_name + helper + result + helper2 + comments2;
-   }
-  alert(url);
-  //return false;
-    
+  
+  //alert("hello");
+  
+  
 }
 
 function even_url(){
@@ -154,7 +176,11 @@ function create_form(){
 	btn.setAttribute('style', 'color: black;');
 	btn.setAttribute('type','button');
 	row.setAttribute('align', 'center');
-	btn.setAttribute('onClick',"window.open(even_url(), 'new_window')");
+	if(document.cd_typeform.custom.checked) {
+		btn.setAttribute('onClick',"custom_url()");
+	}else{
+		btn.setAttribute('onClick',"window.open(even_url(), 'new_window')");
+	}
 	btn.innerHTML = "Confirm";
 	row_end.style = "vertical-align:bottom;text-align:center;"
 	row_end.appendChild(btn);
