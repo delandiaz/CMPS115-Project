@@ -8,7 +8,7 @@ function do_costdivide()
 {
 	num_people = parseInt(document.costdivideform.num_people.value);
 	total_cost = parseInt(document.costdivideform.total_cost.value);
-	if(isNaN(num_people) || num_people <= 0){
+	if(isNaN(num_people) || num_people <= 1){
 		alert("Please enter a valid amount of people");
 		return false;
 	}
@@ -30,8 +30,6 @@ function do_costdivide()
 
 
 function custom_url(){
-  //var test = document.getElementById("cust_inputs1").value;
-  //alert(test);
   
   var comments = document.getElementById("comment_id").value;
   comments = comments.trim();
@@ -43,14 +41,21 @@ function custom_url(){
   var helper2 = "&note=";
   
   for(var i = 1; i < num_people + 1; i++){
-	//total_split += document.getElementById("cust_inputs" + i).value;
 	url = "https://venmo.com/";
 	
-	
-	//personal_split = ((document.getElementById("cust_inputs" +i).value)/100) * total_cost;
 	var string = "cust_inputs" + i.toString();
-	personal_split = ((document.getElementById(string.toString()).value) / 100) * total_cost;
+	var percentage = (document.getElementById(string.toString()).value);
+	if(isNaN(percentage) || percentage == 0){
+		alert("Please enter valid values in the percent field");
+		return;
+	}
+	total_split += percentage;
+	personal_split = ((percentage) / 100) * total_cost;
 	var user_name = document.getElementById("ven_user" + i).value;
+	if(user_name == "" || user_name == null){
+		alert("Please enter a valid user name");
+		return
+	}
 	url += user_name + helper + personal_split;
 	//alert(personal_split);
 	
@@ -60,6 +65,10 @@ function custom_url(){
 	   url += helper2 + comments;
 	}
 	//window.open(url, 'new_window')
+	if(total_split > 100 || total_split <= 0){
+		alert("Please enter valid total percentage (1-100%)");
+		return;
+	}
 	alert(url);
 	
   }
