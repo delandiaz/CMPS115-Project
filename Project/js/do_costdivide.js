@@ -36,6 +36,7 @@ function custom_url(){
   
   var total_split = 0;
   var personal_split;
+  var urls = [];
   var table = document.getElementById("CustomTable");
   var helper = "?txn=charge&amount=";
   var helper2 = "&note=";
@@ -49,8 +50,8 @@ function custom_url(){
 		alert("Please enter valid values in the percent field");
 		return;
 	}
-	total_split += percentage;
-	personal_split = ((percentage) / 100) * total_cost;
+	total_split += Number(percentage);
+	personal_split = (((percentage) / 100) * total_cost).toFixed(2);
 	var user_name = document.getElementById("ven_user" + i).value;
 	if(user_name == "" || user_name == null){
 		alert("Please enter a valid user name");
@@ -66,14 +67,17 @@ function custom_url(){
 	}
 	//window.open(url, 'new_window')
 	if(total_split > 100 || total_split <= 0){
-		alert("Please enter valid total percentage (1-100%)");
+		alert("Please enter valid total percentage (1-100%)" + total_split);
 		return;
 	}
-	alert(url);
+	urls[i-1] = url;
+	//alert(url);
 	
   }
   
-  //alert("hello");
+  for(var i = 0; i < num_people; i++){
+	alert(urls[i]);
+  }
   
   
 }
