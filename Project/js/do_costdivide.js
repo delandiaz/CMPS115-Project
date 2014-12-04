@@ -67,7 +67,7 @@ function custom_url(){
 	}
 	//window.open(url, 'new_window')
 	if(total_split > 100 || total_split <= 0){
-		alert("Please enter valid total percentage (1-100%)" + total_split);
+		alert("Please enter valid total percentage (1-100%)");
 		return;
 	}
 	urls[i-1] = url;
