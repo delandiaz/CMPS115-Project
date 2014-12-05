@@ -1,3 +1,10 @@
+/*
+ * Authors: Delan Diaz, Muzammel Choudhery, Alex Sadeghi, Christian Lewcyzk
+ * CMPS115 Team Skyy Project
+ * Cost-Divider App
+*/
+
+//Global Variables
 var result;
 var num_people;
 var total_cost;
@@ -37,9 +44,16 @@ function custom_url(){
   var total_split = 0;
   var personal_split;
   var urls = [];
-  var table = document.getElementById("CustomTable");
+  var personal_splits = [];
+  var user_names = [];
+  var table = document.getElementById("LinksTable");
   var helper = "?txn=charge&amount=";
   var helper2 = "&note=";
+	var rowCount = LinksTable.rows.length;
+	//Makes sure the table is empty
+	for (var x=rowCount-1; x>=0; x--) {
+	   table.deleteRow(x);
+	}
   
   for(var i = 1; i < num_people + 1; i++){
 	url = "https://venmo.com/";
@@ -52,11 +66,13 @@ function custom_url(){
 	}
 	total_split += Number(percentage);
 	personal_split = (((percentage) / 100) * total_cost).toFixed(2);
+	personal_splits[i - 1] = personal_split;
 	var user_name = document.getElementById("ven_user" + i).value;
 	if(user_name == "" || user_name == null){
 		alert("Please enter a valid user name");
 		return
 	}
+	user_names[i-1] = user_name;
 	url += user_name + helper + personal_split;
 	//alert(personal_split);
 	
@@ -67,18 +83,23 @@ function custom_url(){
 	}
 	//window.open(url, 'new_window')
 	if(total_split > 100 || total_split <= 0){
-		alert("Please enter valid total percentage (1-100%)");
+		alert("Please enter valid total percentage (1-100%)" + total_split);
 		return;
 	}
 	urls[i-1] = url;
 	//alert(url);
 	
   }
-  
-  for(var i = 0; i < num_people; i++){
-	alert(urls[i]);
-  }
-  
+	for(var i=0; i<num_people;i++){
+	var row = table.insertRow(0);
+	var a = document.createElement('a');
+	var linkText = document.createTextNode("" + user_names[i] + ", $" + personal_splits[i]);
+	a.appendChild(linkText);
+	a.setAttribute('title', "" + user_names[i] + ", $" + personal_splits[i]);
+	a.setAttribute('href', "" + urls[i]);
+	a.setAttribute('style', "color: #26ADE4; font-size: 16px");
+	row.appendChild(a);
+	}
   
 }
 
@@ -198,5 +219,6 @@ function create_form(){
 	row_end.style = "vertical-align:bottom;text-align:center;"
 	row_end.appendChild(btn);
 }
+
 
 

@@ -1,3 +1,8 @@
+<!-- 
+ * Authors: Delan Diaz, Muzammel Choudhery, Alex Sadeghi, Christian Lewcyzk
+ * CMPS115 Team Skyy Project
+ * Cost-Divider App
+-->
 <!DOCTYPE html>
 	<html>
 	
@@ -33,9 +38,9 @@
 	<li><a href="#">Home</a></li>
 	</ul>
 	<ul class="pull-right">
-	<li><a href="#">Sign Up</a></li>
-	<li><a href="#">Log In</a></li>
-	<li><a href="#">Contact Us</a></li>
+	<li><a href="404.html">Sign Up</a></li>
+	<li><a href="404.html">Log In</a></li>
+	<li><a href="contact.html">Contact Us</a></li>
 	</ul>
 	</div>
 	</div>
@@ -83,24 +88,19 @@
       	<div>
       		<input id="evenly" name="Field5" type="radio" value="evenly" tabindex="5">
       		<label class="choice" for="evenly">Evenly</label>
-		<label class="choice" for="evenly" title='division of total amount is spread evenly among total 
+		<label class="choice" for="evenly" title='Division of total amount is spread evenly among total 
 		number of people.'><img src="images/blue-qmark.png" height="25" width="25" 
 		id="image"></label>
       	</div>
         <div>
         	<input id="custom" name="Field5" type="radio" value="custom" tabindex="6">
         	<label class="choice" for="custom">Custom</label>
-		<label class="choice" for="evenly" title='division of total amount is unique per person.'><img 
+		<label class="choice" for="evenly" title='Division of total amount is unique per person.'><img 
 		src="images/blue-qmark.png" height="25" width="25" 
 		id="image"></label>
         </div>
     </fieldset>
   </div>
-<tr>
- <td colspan="2" style="text-align:center">
-  <input id="first_button" type="button" onClick = "return check_type()" value="Split!" style="color:#2A2C2B;">
- </td>
-</tr>
 </table>
 </form>
 <!----- SPLIT CHECKING FORM ENDS HERE ------>
@@ -111,21 +111,10 @@
       <div class="inner_large">
        Please Enter the Information Needed to Split
       </div>
-<!-- TOTAL AMOUNT SECTION  -->
-<tr id="singular">
-<div>
- <td valign="top">
-  <label for="percent_split" title='% of total amount removed from total before dividing out to others.'>
-  Percentage Split*</label>
-  </td>
- <td valign="top">
-  <input  type="text" name="percent_split" maxlength="50" size="30" style="color:#2A2C2B;">
-</td>
-</tr>
 <!-- TOTAL PEOPLE SECTION  -->
 <tr>
  <td valign="top">
-  <label for="first_name">Total People*</label>
+  <label for="first_name">Total People To Be Charged*</label>
   </td>
   <td valign="top">
   <input  type="text" name="num_people" maxlength="50" size="30" style="color:#2A2C2B;">
@@ -142,14 +131,6 @@
   <input  type="text" name="total_cost" maxlength="50" size="30" style="color:#2A2C2B;">
 </td>
 </tr>
-<!-- VENMO USERNAME SECTION  -->
-<tr>
- <td valign="top">
-  <label for="email">Venmo Username*</label>
- </td>
- <td valign="top">
-  <input id="venmo_id" type="text" name="venmo_user" maxlength="80" size="30" style="color:#2A2C2B;">
- </td>
 <!-- UPLOAD IMAGE SECTION  -->
 <tr>
 <td valign="top">
@@ -200,6 +181,14 @@
 </form>
 <!--    END OF CUSTOM FORM  -->
 
+<!--------------- CUSTOM FORM IS HERE, ALL INSIDE ELEMENTS CREATED IN JAVASCRIPT ------------->
+<form name="LinksForm" action="" target="hidden-form">
+<table width="550px" id="LinksTable">
+      
+</table>
+</form>
+<!--    END OF CUSTOM FORM  -->
+
 	</div>
 	</div>
 <!----------  RIGHT COLUMN ENDS HERE  ---------->
@@ -235,13 +224,13 @@
 	<div class="col-md-4">
 	<h3>Team Skyy</h3>
 	<p>Meet the wonderful undergraduate team who created this app!</p>
-	<p><a href="#">Learn more about us</a></p>
+	<p><a href="404.html">Learn more about us</a></p>
 	</div>
 	<div class="col-md-4">
 	<h3>Trust and Safety</h3>
 	<p>From Verified ID to our worldwide customer support team, we've got 
 	your back.</p>
-	<p><a href="#">Learn about trust at Team Skyy</a></p>
+	<p><a href="404.html">Learn about trust at Team Skyy</a></p>
 	</div>
 	</div>
 	</div>
@@ -249,3 +238,4 @@
 	<!-- FOOTER ENDS HERE  -->
 	</body>
 	</html>
+

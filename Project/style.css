@@ -1,3 +1,9 @@
+/*
+ * Authors: Delan Diaz, Muzammel Choudhery, Alex Sadeghi, Christian Lewcyzk
+ * CMPS115 Team Skyy Project
+ * Cost-Divider App
+*/
+
 #loading {
 	display: none;
 }
@@ -163,3 +169,11 @@ fieldset {
 	font-size: 12px;
 }
 
+#extra404{
+	/* previous RED color: DC3522  */
+	padding-top: 15px;
+	border-bottom: 2px solid;
+	border-radius: 10px; 
+	border-color: #26ADE4;
+	background-color: #374140;
+}
